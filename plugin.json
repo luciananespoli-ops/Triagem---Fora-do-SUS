@@ -1,0 +1,20 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "triagem-assistente-minutas",
+  "version": "0.9.6",
+  "description": "Triagem identifica autos e minuta; skills específicas analisam; a conexão Google Drive/Docs do assistente-de-minutas preenche e confere, com relatório interno.",
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Triagem + Assistente de Minutas",
+        "shortDescription": "Autos, modelos e minutas",
+        "category": "Other",
+        "capabilities": [],
+        "defaultPrompt": [
+          "Execute o fluxo-triagem-minutas: leia os autos, confirme modelo e skill, execute o percurso autorizado no SPA e continue automaticamente pela skill específica na cópia Google Docs identificada. Preserve o original, use Google Drive/Docs e confira o resultado, sem solicitar revisão intermediária de ações já autorizadas. Não salvar formulário SPA, assinar ou protocolar."
+        ]
+      },
+      "apps": "./.app.json"
+    }
+  }
+}

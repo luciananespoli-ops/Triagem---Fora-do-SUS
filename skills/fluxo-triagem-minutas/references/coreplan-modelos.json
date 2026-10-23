@@ -1,0 +1,22 @@
+{
+  "versao": "0.9.5",
+  "normalizacao": "somente espaços; preservar acentos, maiúsculas e pontuação",
+  "modelos": [
+    {
+      "nome": "CNT - Dieta Enteral + Sonda Botton - CDSP FSUS",
+      "modeloSpaIdObservado": "18619",
+      "caminhoPastas": [
+        {"id": "787", "nome": "NSUS - Núcleo saúde"},
+        {"id": "1441", "nome": "Fora do SUS"},
+        {"id": "1442", "nome": "04 - Fórmula Alimentar"},
+        {"id": "1523", "nome": "TNE"},
+        {"id": "1540", "nome": "1-CONTESTAÇÃO"}
+      ],
+      "fonteIds": "IDs estruturais observados na janela de modelos; conferir novamente na execução, não são IDs de processos",
+      "skill": "contestacoes-fora-do-sus:orquestrar-contestacoes-fsus",
+      "perfil": "dieta-enteral-botton",
+      "exige": "análise dos autos e correspondência com o catálogo e a minuta; o cadastro não comprova cabimento jurídico"
+    }
+  ],
+  "foraDoCatalogo": "Ler o catálogo da skill candidata e observar o caminho e os IDs no SPA antes de registrar outro modelo. Não usar Dieta Enteral como padrão nem inventar IDs. Sem correspondência inequívoca, parar antes de seleção/preenchimento."
+}
