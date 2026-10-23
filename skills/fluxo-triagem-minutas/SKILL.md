@@ -16,13 +16,21 @@ Quando uma leitura dos autos retornar `semTexto`, isso não prova ausência ou i
 
 O pedido do usuário para executar este fluxo autoriza análise, relatório interno, preenchimento e conferência segundo as regras expressas da skill do modelo. Não exigir revisão do relatório nem confirmação intermediária de alterações já abrangidas. Preparar as alterações internamente e executá-las pela conexão google_drive/Google Docs do plugin dentro desse escopo, usando controle de revisão quando disponível. Uma proposta interna não autoriza alterações além da skill.
 
-Sequência: ler autos → identificar modelo → confirmar skill específica → selecionar modelo → parear cópia da minuta → relatório interno completo → preenchimento → conferência → resposta final. Substituir minuta já preenchida exige autorização específica, independente do preenchimento modular; não transportar a autorização dada para uma minuta de teste a outra. Não assinar, protocolar nem salvar formulário SPA automaticamente.
+Sequência: ler autos → emitir relatório de triagem e pacote de indicação conforme [contrato de integração](references/indicacao-modelos.md) → indicar modelo com base no relatório e catálogo → confirmar skill específica → selecionar modelo → parear cópia da minuta → relatório interno completo → preenchimento → conferência → resposta final. Substituir minuta já preenchida exige autorização específica, independente do preenchimento modular; não transportar a autorização dada para uma minuta de teste a outra. Não assinar, protocolar nem salvar formulário SPA automaticamente.
 
 ## Separação de responsabilidades
 
 O MCP Triagem executa leitura dos autos, navegação, seleção do modelo e identificação da cópia Google Docs associada ao SPA. A conexão google_drive/Google Docs fornecida pelo plugin lê, edita e confere essa cópia. A IA analisa evidências e escolhe o modelo. A skill específica determina campos, condições e limites de alteração. O relatório organiza decisões; não cria teses nem amplia permissões.
 
 O usuário escolheu Triagem + skill específica + conexão Google Drive/Docs do plugin. Manter a exigência de google_drive das skills originais. As funções de escrita direta da Triagem não são a via padrão e não devem ser usadas como alternativa automática se a conexão do plugin falhar. Preservar todas as regras substantivas e de identidade. Não modificar silenciosamente o plugin instalado. Esta skill precisa estar disponível na sessão junto das skills específicas; o arquivo no repositório sozinho não instala um plugin no ChatGPT.
+
+## Integração com a skill de indicação de modelos
+
+Encaminhar o relatório pelo objeto: procedimentos/produtos/fórmulas Fora do SUS para [Indicar Modelos de Petições — CDSP](../indicar-modelos-peticoes-cdsp/SKILL.md); internação psiquiátrica ou acolhimento institucional para [Indicar Modelos de Internação e Acolhimento — CDSP](../indicar-modelos-internacao-acolhimento-cdsp/SKILL.md). Ler o catálogo próprio de cada indicadora; não misturar critérios nem ampliar um catálogo com o outro. Em pedidos mistos, avaliar cada objeto separadamente.
+
+Antes de escolher modelo, aplicar o [contrato de integração](references/indicacao-modelos.md). Emitir o relatório de triagem e entregar seu pacote estruturado à skill indicadora correspondente, incluída neste pacote. Não confundir esse relatório prévio com o relatório interno de preenchimento, que depende do modelo confirmado. Se o pedido for apenas triagem e indicação, encerrar com relatório e recomendações, sem selecionar ou editar minuta. Somente o pedido de fluxo completo autoriza continuar as etapas correspondentes.
+
+A comunicação entre skills ocorre pelo contexto e pelos dados estruturados da conversa; não pressupõe endpoint de relatório, execução de skills pelo MCP nem transferência automática entre sessões. Se a instalação não disponibilizar a skill de indicação, informar a integração pendente; não inventar seu nome, catálogo ou regras. Preservar o relatório para continuidade e realizar apenas as tarefas independentes autorizadas.
 
 ## Modelo e skill aplicável
 

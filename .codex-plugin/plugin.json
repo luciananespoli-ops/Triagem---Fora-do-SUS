@@ -5,15 +5,15 @@
     "category": "Other",
     "capabilities": [],
     "defaultPrompt": [
-      "Execute o fluxo-triagem-minutas: leia os autos, confirme modelo e skill, execute o percurso autorizado no SPA e continue automaticamente pela skill espec\u00edfica na c\u00f3pia Google Docs identificada. Preserve o original, use Google Drive/Docs e confira o resultado, sem solicitar revis\u00e3o intermedi\u00e1ria de a\u00e7\u00f5es j\u00e1 autorizadas. N\u00e3o salvar formul\u00e1rio SPA, assinar ou protocolar."
+      "Execute o fluxo-triagem-minutas: leia os autos, confirme modelo e skill, execute o percurso autorizado no SPA e continue automaticamente pela skill específica na cópia Google Docs identificada. Preserve o original, use Google Drive/Docs e confira o resultado, sem solicitar revisão intermediária de ações já autorizadas. Não salvar formulário SPA, assinar ou protocolar."
     ],
-    "longDescription": "Triagem identifica autos e minuta; skills espec\u00edficas analisam; a conex\u00e3o Google Drive/Docs do assistente-de-minutas preenche e confere, com relat\u00f3rio interno.",
+    "longDescription": "Triagem identifica autos e minuta; skills específicas analisam; a conexão Google Drive/Docs do assistente-de-minutas preenche e confere, com relatório interno.",
     "developerName": "Workspace upload"
   },
   "apps": "./.app.json",
   "name": "triagem-assistente-minutas",
-  "version": "0.9.6",
-  "description": "Triagem identifica autos e minuta; skills espec\u00edficas analisam; a conex\u00e3o Google Drive/Docs do assistente-de-minutas preenche e confere, com relat\u00f3rio interno.",
+  "version": "0.9.8",
+  "description": "Triagem identifica autos e minuta; skills específicas analisam; a conexão Google Drive/Docs do assistente-de-minutas preenche e confere, com relatório interno.",
   "author": {
     "name": "Workspace upload"
   },

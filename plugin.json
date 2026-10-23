@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "triagem-assistente-minutas",
-  "version": "0.9.6",
+  "version": "0.9.8",
   "description": "Triagem identifica autos e minuta; skills específicas analisam; a conexão Google Drive/Docs do assistente-de-minutas preenche e confere, com relatório interno.",
   "extensions": {
     "com.openai": {

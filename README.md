@@ -1,6 +1,6 @@
 # Triagem + Assistente de Minutas
 
-Fontes do plugin `triagem-assistente-minutas`, versão **0.9.6**, importados do pacote `plugin (14).zip`.
+Fontes do plugin `triagem-assistente-minutas`, versão **0.9.8**, importados do pacote `plugin (14).zip`.
 
 ## Estrutura
 
@@ -31,3 +31,11 @@ Depois, atualize ou reinstale o pacote pelo fluxo de instalação do plugin na c
 O pacote contém instruções e referências; não há aplicação executável, dependências para instalar ou suíte de testes. O servidor MCP Triagem, a extensão Chrome, as skills jurídicas específicas e as conexões Google Drive/Docs são dependências externas e não estão incluídos. O identificador em `.app.json` referencia um aplicativo existente e não instala seu servidor.
 
 As instruções jurídicas da skill são conteúdo do plugin: importar ou atualizar estes arquivos não autoriza executar ações em processos ou minutas.
+
+## Indicação após a triagem
+
+O fluxo emite primeiro o relatório de triagem e um pacote de evidências para a skill indicadora, conforme `skills/fluxo-triagem-minutas/references/indicacao-modelos.md`. O relatório interno de preenchimento continua posterior à confirmação do modelo. O pacote inclui a skill `indicar-modelos-peticoes-cdsp` e seu catálogo original de 72 registros. Instale a versão atualizada para disponibilizar as duas skills na sessão.
+
+## Internação e acolhimento
+
+Inclui `indicar-modelos-internacao-acolhimento-cdsp`, com os 21 registros do inventário fornecido, e roteamento pelo objeto da triagem. Preserva diferenças de modalidade, idade, fase, recurso e omissão, bem como duplicidades e ressalvas do inventário. Indicação não equivale a preenchimento: modelos sem skill específica permanecem com execução pendente.
