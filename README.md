@@ -12,15 +12,19 @@ Fontes do plugin `triagem-assistente-minutas`, versão **0.9.6**, importados do 
 
 ## Atualizações
 
-Edite os arquivos neste repositório e revise as diferenças antes de enviar as mudanças ao GitHub. Ao lançar uma nova versão, mantenha nome e versão concordantes nos dois manifestos.
+A branch **`main` é a fonte oficial do plugin**. Você e Burno podem trabalhar em branches e abrir pull requests para `main`, ou enviar alterações diretamente a ela quando apropriado. Atualizações que permaneçam em outra branch não integram o pacote oficial. Ao lançar uma nova versão, mantenha nome e versão concordantes nos dois manifestos.
+
+A cada envio à `main`, o GitHub Actions executa **Pacote do plugin (main)**: valida os JSONs, a concordância dos manifestos e a presença das skills, e gera um ZIP do commit exato. Pull requests para `main` também são validados, sem disponibilizar um pacote oficial. Essas verificações são estruturais; não executam o fluxo jurídico nem validam conexões externas.
+
+Para baixar: abra **Actions → Pacote do plugin (main)**, escolha a execução bem-sucedida do commit mais recente de `main` e baixe o artefato `triagem-assistente-minutas-main-<SHA>`. O GitHub entrega um arquivo compactado contendo `triagem-assistente-minutas-plugin.zip`; extraia o ZIP interno para instalar. Os artefatos ficam disponíveis por 90 dias. Se necessário, execute novamente pela opção **Run workflow**, selecionando `main`. O GitHub Actions precisa estar habilitado no repositório.
 
 Para gerar um pacote a partir dos arquivos versionados, após registrar as mudanças em um commit:
 
 ```sh
-git archive --format=zip --output=/tmp/triagem-assistente-minutas-plugin.zip HEAD plugin.json .codex-plugin/plugin.json .app.json skills ATUALIZACAO-COREPLAN-0.9.5.md
+python3 scripts/package_plugin.py /tmp/triagem-assistente-minutas-plugin.zip
 ```
 
-Depois, atualize ou reinstale o pacote pelo fluxo de instalação do plugin na conta e confira a versão em uma nova conversa. Este repositório não configura sincronização automática nem publicação do plugin instalado. Publicar o ambiente de desenvolvimento na nuvem também não publica o plugin.
+Depois, atualize ou reinstale o pacote pelo fluxo de instalação do plugin na conta e confira a versão em uma nova conversa. A geração do pacote acompanha automaticamente a `main`; a publicação e a instalação na conta continuam separadas. Publicar o ambiente de desenvolvimento na nuvem também não publica o plugin.
 
 ## Dependências e limites
 

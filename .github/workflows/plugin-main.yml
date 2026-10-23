@@ -1,0 +1,32 @@
+name: Pacote do plugin (main)
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  package:
+    if: github.ref == 'refs/heads/main' || github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validar e empacotar o commit
+        run: python scripts/package_plugin.py /tmp/triagem-assistente-minutas-plugin.zip
+      - name: Disponibilizar pacote da main
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        uses: actions/upload-artifact@v4
+        with:
+          name: triagem-assistente-minutas-main-${{ github.sha }}
+          path: /tmp/triagem-assistente-minutas-plugin.zip
+          if-no-files-found: error
+          retention-days: 90
+
