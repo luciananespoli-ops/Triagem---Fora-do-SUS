@@ -1,6 +1,0 @@
-interface:
-  display_name: "Fluxo Triagem e Minutas"
-  short_description: "Percurso SPA e preenchimento pela skill específica"
-  default_prompt: "Execute o fluxo integrado no processo indicado, com modelo confirmado pelos autos, percurso autorizado e preenchimento na cópia Google Docs pela skill específica."
-policy:
-  allow_implicit_invocation: true

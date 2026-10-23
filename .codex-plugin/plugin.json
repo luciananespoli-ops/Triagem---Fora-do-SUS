@@ -1,22 +1,33 @@
 {
   "interface": {
-    "displayName": "Triagem + Assistente de Minutas",
-    "shortDescription": "Autos, modelos e minutas",
-    "category": "Other",
     "capabilities": [],
+    "category": "Productivity",
+    "composerIcon": "./assets/icon.svg",
     "defaultPrompt": [
-      "Execute o fluxo-triagem-minutas: leia os autos, confirme modelo e skill, execute o percurso autorizado no SPA e continue automaticamente pela skill específica na cópia Google Docs identificada. Preserve o original, use Google Drive/Docs e confira o resultado, sem solicitar revisão intermediária de ações já autorizadas. Não salvar formulário SPA, assinar ou protocolar."
+      "Fa\u00e7a a triagem da caixa FSUS e indique os modelos compat\u00edveis com o relat\u00f3rio.",
+      "Fa\u00e7a a triagem da caixa IP e indique os modelos compat\u00edveis com o relat\u00f3rio.",
+      "Indique modelos de peti\u00e7\u00f5es CDSP com base neste relat\u00f3rio de triagem."
     ],
-    "longDescription": "Triagem identifica autos e minuta; skills específicas analisam; a conexão Google Drive/Docs do assistente-de-minutas preenche e confere, com relatório interno.",
-    "developerName": "Workspace upload"
+    "developerName": "Luciana de Azevedo N\u00e9spoli",
+    "displayName": "Triagem SPA \u2014 FSUS e IP 2.0",
+    "logo": "./assets/icon.svg",
+    "longDescription": "Re\u00fane a skill Triagem SPA \u2014 FSUS e IP 2.0, suas refer\u00eancias integrais, orquestrador geral, orquestradores FSUS e IP e Indicar Modelos de Peti\u00e7\u00f5es \u2014 CDSP com cat\u00e1logo de 72 registros, al\u00e9m de Indicar Modelos de Interna\u00e7\u00e3o Psiqui\u00e1trica e Acolhimento Institucional \u2014 CDSP com cat\u00e1logo de 21 registros. Preserva as regras aprovadas, assessor em branco e ci\u00eancia separada. O relat\u00f3rio alimenta a recomenda\u00e7\u00e3o de modelos sem selecionar pe\u00e7as no SPA nem preencher minutas. As opera\u00e7\u00f5es no SPA dependem do conector SPA MCP \u2014 Triagem, configurado separadamente; o pacote n\u00e3o instala extens\u00e3o, servidor ou conex\u00e3o.",
+    "shortDescription": "Triagem e modelos CDSP"
   },
-  "apps": "./.app.json",
-  "name": "triagem-assistente-minutas",
-  "version": "0.9.8",
-  "description": "Triagem identifica autos e minuta; skills específicas analisam; a conexão Google Drive/Docs do assistente-de-minutas preenche e confere, com relatório interno.",
+  "name": "triagem-spa-fsus-ip",
+  "version": "0.1.1",
+  "description": "Triagem SPA FSUS e IP com orquestradores por caixa e indica\u00e7\u00e3o de modelos CDSP a partir do relat\u00f3rio. Requer conector SPA MCP \u2014 Triagem dispon\u00edvel separadamente para operar no SPA.",
   "author": {
-    "name": "Workspace upload"
+    "name": "Luciana de Azevedo N\u00e9spoli",
+    "email": "luciananespoli@pge.mt.gov.br"
   },
-  "keywords": [],
+  "keywords": [
+    "SPA",
+    "CDSP",
+    "FSUS",
+    "IP",
+    "triagem",
+    "modelos"
+  ],
   "skills": "./skills"
 }

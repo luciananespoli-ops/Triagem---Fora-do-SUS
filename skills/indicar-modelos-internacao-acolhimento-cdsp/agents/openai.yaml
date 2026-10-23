@@ -1,6 +1,5 @@
 interface:
-  display_name: "Indicar Modelos de Internação e Acolhimento — CDSP"
-  short_description: "Indica peças de internação e acolhimento pela triagem"
-  default_prompt: "Use $indicar-modelos-internacao-acolhimento-cdsp para indicar modelos compatíveis com este relatório de triagem."
+  display_name: Indicar Modelos de Internação e Acolhimento — CDSP
+  short_description: Indica modelos de internação e acolhimento por relatório de triagem
 policy:
   allow_implicit_invocation: true

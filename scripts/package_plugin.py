@@ -13,8 +13,7 @@ def build(output):
     root = Path(__file__).resolve().parents[1]
     archive = subprocess.check_output(
         ["git", "archive", "--format=zip", "HEAD", "plugin.json",
-         ".codex-plugin/plugin.json", ".app.json", "skills",
-         "ATUALIZACAO-COREPLAN-0.9.5.md"],
+         ".codex-plugin/plugin.json", "assets", "skills"],
         cwd=root,
     )
     with zipfile.ZipFile(io.BytesIO(archive)) as package:
@@ -32,9 +31,13 @@ def build(output):
             raise ValueError("Versão deve seguir major.minor.patch")
         if legacy["skills"] != "./skills":
             raise ValueError("Diretório de skills inesperado")
-        app_paths = [legacy["apps"], portable["extensions"]["com.openai"]["apps"]]
-        if any(path != "./.app.json" for path in app_paths):
-            raise ValueError("Referência ao aplicativo inesperada")
+        interface = portable["extensions"]["com.openai"]["interface"]
+        if interface != legacy["interface"]:
+            raise ValueError("Interfaces dos manifestos divergem")
+        for key in ("logo", "composerIcon"):
+            path = interface[key].removeprefix("./")
+            if path not in names:
+                raise ValueError(f"Ícone ausente: {path}")
         skills = sorted(n for n in names if n.startswith("skills/") and n.endswith("/SKILL.md"))
         if not skills:
             raise ValueError("Nenhuma skill incluída")
@@ -52,4 +55,4 @@ def build(output):
 
 
 if __name__ == "__main__":
-    build(sys.argv[1] if len(sys.argv) > 1 else "/tmp/triagem-assistente-minutas-plugin.zip")
+    build(sys.argv[1] if len(sys.argv) > 1 else "/tmp/triagem-spa-fsus-ip-plugin.zip")

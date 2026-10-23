@@ -1,0 +1,6 @@
+interface:
+  display_name: Orquestrador FSUS — Fora do SUS
+  short_description: Coordenar exclusivamente a caixa FSUS no SPA, aplicar a skill
+    de triagem original e encaminhar seu relatório à indicação de modelos CDSP.
+policy:
+  allow_implicit_invocation: true

@@ -20,13 +20,13 @@ jobs:
         with:
           python-version: '3.12'
       - name: Validar e empacotar o commit
-        run: python scripts/package_plugin.py /tmp/triagem-assistente-minutas-plugin.zip
+        run: python scripts/package_plugin.py /tmp/triagem-spa-fsus-ip-plugin.zip
       - name: Disponibilizar pacote da main
         if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
         uses: actions/upload-artifact@v4
         with:
-          name: triagem-assistente-minutas-main-${{ github.sha }}
-          path: /tmp/triagem-assistente-minutas-plugin.zip
+          name: triagem-spa-fsus-ip-main-${{ github.sha }}
+          path: /tmp/triagem-spa-fsus-ip-plugin.zip
           if-no-files-found: error
           retention-days: 90
 

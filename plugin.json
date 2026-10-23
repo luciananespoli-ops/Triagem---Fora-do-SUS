@@ -1,20 +1,37 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
-  "name": "triagem-assistente-minutas",
-  "version": "0.9.8",
-  "description": "Triagem identifica autos e minuta; skills específicas analisam; a conexão Google Drive/Docs do assistente-de-minutas preenche e confere, com relatório interno.",
+  "author": {
+    "email": "luciananespoli@pge.mt.gov.br",
+    "name": "Luciana de Azevedo Néspoli"
+  },
+  "description": "Triagem SPA FSUS e IP com orquestradores por caixa e indicação de modelos CDSP a partir do relatório. Requer conector SPA MCP — Triagem disponível separadamente para operar no SPA.",
   "extensions": {
     "com.openai": {
       "interface": {
-        "displayName": "Triagem + Assistente de Minutas",
-        "shortDescription": "Autos, modelos e minutas",
-        "category": "Other",
         "capabilities": [],
+        "category": "Productivity",
+        "composerIcon": "./assets/icon.svg",
         "defaultPrompt": [
-          "Execute o fluxo-triagem-minutas: leia os autos, confirme modelo e skill, execute o percurso autorizado no SPA e continue automaticamente pela skill específica na cópia Google Docs identificada. Preserve o original, use Google Drive/Docs e confira o resultado, sem solicitar revisão intermediária de ações já autorizadas. Não salvar formulário SPA, assinar ou protocolar."
-        ]
-      },
-      "apps": "./.app.json"
+          "Faça a triagem da caixa FSUS e indique os modelos compatíveis com o relatório.",
+          "Faça a triagem da caixa IP e indique os modelos compatíveis com o relatório.",
+          "Indique modelos de petições CDSP com base neste relatório de triagem."
+        ],
+        "developerName": "Luciana de Azevedo Néspoli",
+        "displayName": "Triagem SPA — FSUS e IP 2.0",
+        "logo": "./assets/icon.svg",
+        "longDescription": "Reúne a skill Triagem SPA — FSUS e IP 2.0, suas referências integrais, orquestrador geral, orquestradores FSUS e IP e Indicar Modelos de Petições — CDSP com catálogo de 72 registros, além de Indicar Modelos de Internação Psiquiátrica e Acolhimento Institucional — CDSP com catálogo de 21 registros. Preserva as regras aprovadas, assessor em branco e ciência separada. O relatório alimenta a recomendação de modelos sem selecionar peças no SPA nem preencher minutas. As operações no SPA dependem do conector SPA MCP — Triagem, configurado separadamente; o pacote não instala extensão, servidor ou conexão.",
+        "shortDescription": "Triagem e modelos CDSP"
+      }
     }
-  }
+  },
+  "keywords": [
+    "SPA",
+    "CDSP",
+    "FSUS",
+    "IP",
+    "triagem",
+    "modelos"
+  ],
+  "name": "triagem-spa-fsus-ip",
+  "version": "0.1.1"
 }

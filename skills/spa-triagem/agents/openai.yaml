@@ -1,0 +1,9 @@
+interface:
+  display_name: Triagem SPA — FSUS e IP 2.0
+  short_description: Automação de triagem FSUS e IP pelo MCP do SPA
+  default_prompt: Use $spa-triagem para executar a triagem da caixa FSUS com assessor
+    em branco, aplicar somente as regras aprovadas e criar os Ofícios indicados.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  allow_implicit_invocation: true

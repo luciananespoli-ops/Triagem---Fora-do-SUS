@@ -1,41 +1,39 @@
-# Triagem + Assistente de Minutas
+# Triagem SPA — FSUS e IP 2.0
 
-Fontes do plugin `triagem-assistente-minutas`, versão **0.9.8**, importados do pacote `plugin (14).zip`.
+Fontes do plugin `triagem-spa-fsus-ip`, versão de manifesto **0.1.1**, importadas da release `pluginrel_6adbcee3dce48191b0d64a361d9d4a4a`. “2.0” integra o nome exibido do plugin.
+
+Este pacote substitui o antigo Triagem + Assistente de Minutas. Os arquivos anteriores permanecem no histórico Git.
 
 ## Estrutura
 
-- `plugin.json`: manifesto portátil.
-- `.codex-plugin/plugin.json`: manifesto de compatibilidade Codex.
-- `.app.json`: referência à conexão existente do aplicativo; não contém credenciais.
-- `skills/fluxo-triagem-minutas/`: skill de coordenação, configuração de interface e referências.
-- `ATUALIZACAO-COREPLAN-0.9.5.md`: histórico fornecido no pacote. As versões mencionadas nesse histórico são anteriores à versão dos manifestos.
+- `plugin.json` e `.codex-plugin/plugin.json`: manifestos originais do plugin.
+- `assets/`: ícone do plugin.
+- `skills/spa-triagem/`: triagem SPA e referências integrais.
+- `skills/orquestrar-triagem-spa/`: coordenação geral e contrato do relatório.
+- `skills/orquestrar-triagem-fsus/` e `skills/orquestrar-triagem-ip/`: coordenação por caixa.
+- `skills/indicar-modelos-peticoes-cdsp/`: indicação com catálogo de 72 registros.
+- `skills/indicar-modelos-internacao-acolhimento-cdsp/`: indicação com catálogo de 21 registros.
 
-## Atualizações
+## Atualizações e pacote
 
-A branch **`main` é a fonte oficial do plugin**. Você e Burno podem trabalhar em branches e abrir pull requests para `main`, ou enviar alterações diretamente a ela quando apropriado. Atualizações que permaneçam em outra branch não integram o pacote oficial. Ao lançar uma nova versão, mantenha nome e versão concordantes nos dois manifestos.
+A branch **`main` é a fonte oficial do plugin**. Alterações podem ser propostas em branches e pull requests para `main`. Mantenha os dois manifestos concordantes.
 
-A cada envio à `main`, o GitHub Actions executa **Pacote do plugin (main)**: valida os JSONs, a concordância dos manifestos e a presença das skills, e gera um ZIP do commit exato. Pull requests para `main` também são validados, sem disponibilizar um pacote oficial. Essas verificações são estruturais; não executam o fluxo jurídico nem validam conexões externas.
+A cada envio à `main`, o GitHub Actions executa **Pacote do plugin (main)**: valida os JSONs, a concordância dos manifestos, os ícones e a presença das skills, e gera um ZIP do commit exato. Pull requests para `main` também são validados, sem disponibilizar pacote oficial.
 
-Para baixar: abra **Actions → Pacote do plugin (main)**, escolha a execução bem-sucedida do commit mais recente de `main` e baixe o artefato `triagem-assistente-minutas-main-<SHA>`. O GitHub entrega um arquivo compactado contendo `triagem-assistente-minutas-plugin.zip`; extraia o ZIP interno para instalar. Os artefatos ficam disponíveis por 90 dias. Se necessário, execute novamente pela opção **Run workflow**, selecionando `main`. O GitHub Actions precisa estar habilitado no repositório.
+Para baixar, abra **Actions → Pacote do plugin (main)** e escolha a execução bem-sucedida do commit mais recente de `main`. Baixe `triagem-spa-fsus-ip-main-<SHA>` e extraia o ZIP interno `triagem-spa-fsus-ip-plugin.zip`. Os artefatos ficam disponíveis por 90 dias. Também é possível executar **Run workflow** selecionando `main`.
 
-Para gerar um pacote a partir dos arquivos versionados, após registrar as mudanças em um commit:
+Para gerar localmente, após registrar as mudanças em um commit:
 
 ```sh
-python3 scripts/package_plugin.py /tmp/triagem-assistente-minutas-plugin.zip
+python3 scripts/package_plugin.py /tmp/triagem-spa-fsus-ip-plugin.zip
 ```
 
-Depois, atualize ou reinstale o pacote pelo fluxo de instalação do plugin na conta e confira a versão em uma nova conversa. A geração do pacote acompanha automaticamente a `main`; a publicação e a instalação na conta continuam separadas. Publicar o ambiente de desenvolvimento na nuvem também não publica o plugin.
+O script empacota os arquivos de `HEAD`. Publicação e instalação na conta são etapas separadas; alterar este repositório não atualiza o plugin instalado automaticamente.
 
 ## Dependências e limites
 
-O pacote contém instruções e referências; não há aplicação executável, dependências para instalar ou suíte de testes. O servidor MCP Triagem, a extensão Chrome, as skills jurídicas específicas e as conexões Google Drive/Docs são dependências externas e não estão incluídos. O identificador em `.app.json` referencia um aplicativo existente e não instala seu servidor.
+O conector **SPA MCP — Triagem** deve estar disponível separadamente. O pacote não instala extensão, servidor ou conexão; por isso, não inclui a antiga referência `.app.json`.
 
-As instruções jurídicas da skill são conteúdo do plugin: importar ou atualizar estes arquivos não autoriza executar ações em processos ou minutas.
+As seis skills coordenam triagem FSUS/IP e recomendação de modelos a partir do relatório. A indicação não seleciona modelos no SPA nem preenche minutas. Importar estes arquivos não autoriza ações em processos.
 
-## Indicação após a triagem
-
-O fluxo emite primeiro o relatório de triagem e um pacote de evidências para a skill indicadora, conforme `skills/fluxo-triagem-minutas/references/indicacao-modelos.md`. O relatório interno de preenchimento continua posterior à confirmação do modelo. O pacote inclui a skill `indicar-modelos-peticoes-cdsp` e seu catálogo original de 72 registros. Instale a versão atualizada para disponibilizar as duas skills na sessão.
-
-## Internação e acolhimento
-
-Inclui `indicar-modelos-internacao-acolhimento-cdsp`, com os 21 registros do inventário fornecido, e roteamento pelo objeto da triagem. Preserva diferenças de modalidade, idade, fase, recurso e omissão, bem como duplicidades e ressalvas do inventário. Indicação não equivale a preenchimento: modelos sem skill específica permanecem com execução pendente.
+As verificações de empacotamento são estruturais: não executam o fluxo jurídico nem validam conexões externas.

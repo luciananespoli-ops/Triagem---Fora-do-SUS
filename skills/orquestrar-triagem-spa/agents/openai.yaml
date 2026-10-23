@@ -1,0 +1,6 @@
+interface:
+  display_name: Orquestrador geral — Triagem SPA
+  short_description: Coordenar triagem SPA FSUS ou IP e encaminhar o relatório para
+    indicação de modelos CDSP, mantendo autorização e execução sequencial.
+policy:
+  allow_implicit_invocation: true
